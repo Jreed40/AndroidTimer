@@ -12,6 +12,8 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static boolean isRun;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,22 +22,29 @@ public class MainActivity extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(final View v) {
-                try {
-                    long start = System.currentTimeMillis();
-                    long current = System.currentTimeMillis() - start;
-                    String caa = Long.toString(current);
-                    Log.d("Jason", caa);
-                    long timetill = 1000 - (current % 1000);
-                    while(true) {
+                isRun = true;
+                long start = System.currentTimeMillis();
+                long current = System.currentTimeMillis() - start;
+                long timetill = 1000 - (current % 1000);
+                long stop = 10;
+                long d = 0;
+                while(d != stop) {
+                    try {
                         Thread.sleep(timetill);
                         current = System.currentTimeMillis() - start;
-                        String c = Long.toString(current);
-                        Log.d("Jason", caa);
+                        d = current / 1000;
+                        Log.d("Jason", " " + current);
                         timetill = 1000 - (current % 1000);
+                    } catch (Exception e) {
                     }
-                } catch (InterruptedException e) {
-                    Log.d("Jason", "Something broke");
                 }
+            }
+        });
+        final Button clear = findViewById(R.id.Clear);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                isRun = false;
             }
         });
     }

@@ -11,7 +11,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="471dp">
+        tools:layout_editor_absoluteY="414dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="411dp"
+            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         <Button
             android:id="@+id/main"
