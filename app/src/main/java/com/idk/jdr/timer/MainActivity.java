@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                isRun = false;
+                isRun = true;
             }
         });
     }
