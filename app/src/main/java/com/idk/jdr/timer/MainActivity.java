@@ -3,47 +3,26 @@ package com.idk.jdr.timer;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
+
 public class MainActivity extends AppCompatActivity {
 
-    public static boolean isRun;
+    private Chronometer chro;
+    private long offset;
+    private boolean run;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final Button start = findViewById(R.id.main);
-        start.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(final View v) {
-                isRun = true;
-                long start = System.currentTimeMillis();
-                long current = System.currentTimeMillis() - start;
-                long timetill = 1000 - (current % 1000);
-                long stop = 10;
-                long d = 0;
-                while(d != stop) {
-                    try {
-                        Thread.sleep(timetill);
-                        current = System.currentTimeMillis() - start;
-                        d = current / 1000;
-                        Log.d("Jason", " " + current);
-                        timetill = 1000 - (current % 1000);
-                    } catch (Exception e) {
-                    }
-                }
-            }
-        });
-        final Button clear = findViewById(R.id.Clear);
-        clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                isRun = true;
-            }
-        });
+
+        chro = findViewById(R.id.chronometer);
+
         Button googleBtn = (Button)findViewById(R.id.googleBtn);
         googleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +35,26 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void startChro(View v) {
+        if(!run) {
+            chro.setBase(SystemClock.elapsedRealtime() - offset);
+            chro.start();
+            run = true;
+        }
+    }
+
+    public void pauseChro(View v) {
+        if(run) {
+            chro.stop();
+            offset = SystemClock.elapsedRealtime() - chro.getBase();
+            run = false;
+        }
+    }
+    public void clearChro(View v) {
+        chro.setBase(SystemClock.elapsedRealtime());
+        offset = 0;
     }
 
 }
