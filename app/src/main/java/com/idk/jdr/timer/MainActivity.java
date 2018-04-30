@@ -1,15 +1,12 @@
 package com.idk.jdr.timer;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
-import org.json.JSONObject;
-
 public class MainActivity extends AppCompatActivity {
 
     public static boolean isRun;
@@ -45,6 +42,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
                 isRun = true;
+            }
+        });
+        Button googleBtn = (Button)findViewById(R.id.googleBtn);
+        googleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String google = "http://www.google.com";
+                Uri webaddress = Uri.parse(google);
+                Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webaddress);
+                if (gotoGoogle.resolveActivity(getPackageManager()) !=null) {
+                    startActivity(gotoGoogle);
+                }
             }
         });
     }
