@@ -18,35 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final Button start = findViewById(R.id.main);
-        start.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(final View v) {
-                isRun = true;
-                long start = System.currentTimeMillis();
-                long current = System.currentTimeMillis() - start;
-                long timetill = 1000 - (current % 1000);
-                long stop = 10;
-                long d = 0;
-                while(d != stop) {
-                    try {
-                        Thread.sleep(timetill);
-                        current = System.currentTimeMillis() - start;
-                        d = current / 1000;
-                        Log.d("Jason", " " + current);
-                        timetill = 1000 - (current % 1000);
-                    } catch (Exception e) {
-                    }
-                }
-            }
-        });
-        final Button clear = findViewById(R.id.Clear);
-        clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                isRun = true;
-            }
-        });
+
     }
 
 }
