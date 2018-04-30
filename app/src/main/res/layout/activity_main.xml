@@ -13,6 +13,7 @@
             android:layout_height="wrap_content"
             android:textSize="30sp" />
         <Button
+            android:id="@+id/Start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start"
@@ -20,6 +21,7 @@
             />
 
         <Button
+            android:id="@+id/Pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pause"
@@ -27,6 +29,7 @@
             />
 
         <Button
+            android:id="@+id/Clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Clear"

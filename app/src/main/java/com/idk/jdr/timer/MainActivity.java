@@ -22,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         chro = findViewById(R.id.chronometer);
-
-        Button googleBtn = (Button)findViewById(R.id.googleBtn);
+        View pause = findViewById(R.id.Pause);
+        pause.setVisibility(View.INVISIBLE);
+        View googleBtn = (Button)findViewById(R.id.googleBtn);
         googleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
             chro.setBase(SystemClock.elapsedRealtime() - offset);
             chro.start();
             run = true;
+            View start = findViewById(R.id.Start);
+            start.setVisibility(View.INVISIBLE);
+            View pause = findViewById(R.id.Pause);
+            pause.setVisibility(View.VISIBLE);
         }
     }
 
@@ -50,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
             chro.stop();
             offset = SystemClock.elapsedRealtime() - chro.getBase();
             run = false;
+            View start = findViewById(R.id.Start);
+            start.setVisibility(View.VISIBLE);
+            View pause = findViewById(R.id.Pause);
+            pause.setVisibility(View.INVISIBLE);
         }
     }
     public void clearChro(View v) {
