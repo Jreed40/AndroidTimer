@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         chro = findViewById(R.id.chronometer);
-        Button pause = findViewById(R.id.Pause);
-        pause.setVisibility(View.INVISIBLE);
+
         View googleBtn = (Button)findViewById(R.id.googleBtn);
         googleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,29 +37,24 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void startChro(View v) {
-        if(!run) {
-            chro.setBase(SystemClock.elapsedRealtime() - offset);
-            chro.start();
-            run = true;
-            Button start = findViewById(R.id.Start);
-            start.setVisibility(View.INVISIBLE);
-            Button pause = findViewById(R.id.Pause);
-            pause.setVisibility(View.VISIBLE);
-        }
-    }
-
-    public void pauseChro(View v) {
+    public void combineChro(View v) {
+        final CharSequence s = "Start";
+        final CharSequence p = "Pause";
         if(run) {
             chro.stop();
             offset = SystemClock.elapsedRealtime() - chro.getBase();
             run = false;
             Button start = findViewById(R.id.Start);
-            start.setVisibility(View.VISIBLE);
-            Button pause = findViewById(R.id.Pause);
-            pause.setVisibility(View.INVISIBLE);
+            start.setText(s);
+        } else {
+            chro.setBase(SystemClock.elapsedRealtime() - offset);
+            chro.start();
+            run = true;
+            Button start = findViewById(R.id.Start);
+            start.setText(p);
         }
     }
+
     public void clearChro(View v) {
         chro.setBase(SystemClock.elapsedRealtime());
         offset = 0;

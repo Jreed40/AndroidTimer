@@ -17,16 +17,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start"
-            android:onClick="startChro"
+            android:onClick="combineChro"
             />
 
-        <Button
-            android:id="@+id/Pause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pause"
-            android:onClick="pauseChro"
-            />
 
         <Button
             android:id="@+id/Clear"
