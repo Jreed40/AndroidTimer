@@ -9,33 +9,11 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <Chronometer
-            android:id="@+id/chronometer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp" />
-        <Button
-            android:id="@+id/Start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Start"
-            android:onClick="combineChro"
-            />
-
-
-        <Button
-            android:id="@+id/Clear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Clear"
-            android:onClick="clearChro"
-            />
-
-        <Button
-            android:id="@+id/googleBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CS125" />
+    <Button
+        android:id="@+id/googleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CS125" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
