@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 
 public class ClockFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_clock, container, false);
+        View view = inflater.inflate(R.layout.fragment_clock, container, false);
+
+
+
+        return view;
     }
 }
